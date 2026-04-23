@@ -36,7 +36,9 @@ ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN", "").strip()
 # Limites de rétention
 RETENTION_DAYS = int(os.environ.get("RETENTION_DAYS", "30"))
 
-CT_WSS = "wss://certstream.calidog.io/"
+# Endpoint CertStream compatible. Par défaut : notre ct-server Railway interne.
+# On peut override avec la variable d'env CT_WSS si on veut un autre provider.
+CT_WSS = os.environ.get("CT_WSS", "ws://ct-server.railway.internal:8080/full-stream")
 
 PORT = int(os.environ.get("PORT", "8080"))
 
