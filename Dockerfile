@@ -9,8 +9,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # App
 COPY app.py .
 
-# Volume persistant pour les fichiers ct_YYYY-MM-DD.txt
-VOLUME ["/data"]
+# Le volume /data est monté par Railway via l'API (pas via Dockerfile)
 
 ENV DATA_DIR=/data \
     PYTHONUNBUFFERED=1
